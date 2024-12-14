@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Life - Trang chủ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #28a745;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+        }
+
+        nav a:hover {
+            background: #28a745;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .banner {
+            background: url('https://media.istockphoto.com/id/1453227796/photo/digital-nutritional-program-with-heathy-food-and-digital-tablet-charts.webp?a=1&b=1&s=612x612&w=0&k=20&c=qjWSCLky0W8ANL4E8aT4MSh0VmTarzxp0_DkPw3Abuk=') no-repeat center/cover;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .categories, .articles {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #28a745;
+        }
+
+        .categories .category, .articles .article {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .categories .category img, .articles .article img {
+            width: 100%;
+            height: auto;
+        }
+
+        .categories .category p, .articles .article p {
+            padding: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Healthy Life</h1>
+    <p>Chăm sóc sức khỏe qua dinh dưỡng</p>
+</header>
+
+<nav>
+    <a href="#">Trang chủ</a>
+    <a href="#">Danh mục</a>
+    <a href="#">Công thức</a>
+    <a href="#">Bài viết</a>
+    <a href="#">Liên hệ</a>
+</nav>
+
+<div class="banner">
+    Khám phá thực phẩm tốt cho sức khỏe
+</div>
+
+<div class="content">
+    <section class="categories">
+        <h2 class="section-title">Danh mục nổi bật</h2>
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Trái cây">
+            <p>Trái cây</p>
+        </div>
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rau củ">
+            <p>Rau củ</p>
+        </div>
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bữa ăn dinh dưỡng">
+            <p>Bữa ăn dinh dưỡng</p>
+        </div>
+    </section>
+
+    <section class="articles">
+        <h2 class="section-title">Bài viết mới nhất</h2>
+        <div class="article">
+            <img src="https://source.unsplash.com/300x200/?diet" alt="Chế độ ăn">
+            <p>Lợi ích của chế độ ăn lành mạnh</p>
+        </div>
+        <div class="article">
+            <img src="https://source.unsplash.com/300x200/?nutrition" alt="Dinh dưỡng">
+            <p>Hiểu về dinh dưỡng cân bằng</p>
+        </div>
+        <div class="article">
+            <img src="https://source.unsplash.com/300x200/?organic-food" alt="Thực phẩm hữu cơ">
+            <p>Lý do nên chọn thực phẩm hữu cơ</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Healthy Life. Tất cả quyền được bảo lưu.</p>
+</footer>
+</body>
+</html>
