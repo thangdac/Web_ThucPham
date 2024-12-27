@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Công ty, đại lý, hiện đại, bootstrap4, công nghệ, phần mềm">
+    <meta name="author" content="themefisher.com">
+    <title>Ứng Dụng Của Tôi</title>
+    <link th:fragment="link-css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
+    <link th:fragment="custom-css" rel="stylesheet"
+          th:href="@{/css/style.css}">
+    <link th:fragment="icofont-css" rel="stylesheet"
+          th:href="@{/plugins/icofont/icofont.min.css}">
+    <link th:fragment="slick-css" rel="stylesheet"
+          th:href="@{/plugins/slick-carousel/slick/slick.css}">
+    <link th:fragment="slicktheme-css" rel="stylesheet"
+          th:href="@{/plugins/slick-carousel/slick/slick-theme.css}">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <link rel="stylesheet" href="client/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="d-flex flex-column h-100" id="top">
+<header th:fragment="header">
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">TP Hồ Chí Minh, Việt Nam</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">fruitables@gmail.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2">Chính sách bảo mật</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Điều khoản sử dụng</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Chính sách đổi trả</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="/" class="navbar-brand"><h1 class="text-primary display-6">Fruitables</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse"
+                     id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                               href="/">Trang chủ</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/products">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/blog">Tin tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">Giới thiệu</a></li>
+<!--                        <li sec:authorize="hasAuthority('ADMIN')" class="nav-item"><a class="nav-link" href="/cart/listOrder">Chi tiết đơn hàng</a></li>-->
+                        <li sec:authorize="hasAuthority('USER')" class="nav-item"><a class="nav-link" href="/cart/listOrder">Đơn hàng</a></li>
+                        <li sec:authorize="hasAuthority('USER')" class="nav-item"><a class="nav-link" href="/cart">Giỏ hàng</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item d-flex align-items-center" sec:authorize="isAuthenticated()">
+                            <span class="navbar-text">
+                                <a class="collapse-item" th:href="@{/profile}" >
+                                    Xin chào, <span sec:authentication="name" style="margin-right: 20px;"></span>
+                                </a>
+                            </span>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAuthenticated()">
+                            <form th:action="@{/logout}" method="post">
+                                <button class="btn btn-outline-danger"
+                                        type="submit">Đăng xuất</button>
+                            </form>
+                        </li>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()">
+                            <a class="btn btn-outline-success" href="/login">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div th:fragment="content"></div>
+</div>
+
+<!-- Phần banner -->
+<section class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xl-7">
+                <div class="block">
+                    <div class="divider mb-3"></div>
+                    <span class="text-uppercase text-sm letter-spacing">Giải pháp chăm sóc sức khỏe toàn diện</span>
+                    <h1 class="mb-3 mt-3">Người bạn đồng hành sức khỏe đáng tin cậy</h1>
+
+                    <p class="mb-4 pr-5">Chúng tôi mang đến dịch vụ tốt nhất, giúp bạn cải thiện sức khỏe và chất lượng cuộc sống.</p>
+                    <div class="btn-container">
+                        <a href="appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Đặt lịch hẹn <i class="icofont-simple-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phần khác -->
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="feature-block d-lg-flex">
+                    <div class="feature-item mb-5 mb-lg-0">
+                        <div class="feature-icon mb-4">
+                            <i class="icofont-surgeon-alt"></i>
+                        </div>
+                        <span>Dịch vụ 24 giờ</span>
+                        <h4 class="mb-3">Đặt lịch trực tuyến</h4>
+                        <p class="mb-4">Chúng tôi cung cấp hỗ trợ khẩn cấp mọi lúc. Dịch vụ chăm sóc sức khỏe hàng đầu dành cho bạn.</p>
+                        <a href="appoinment.html" class="btn btn-main btn-round-full">Đặt lịch ngay</a>
+                    </div>
+
+                    <div class="feature-item mb-5 mb-lg-0">
+                        <div class="feature-icon mb-4">
+                            <i class="icofont-ui-clock"></i>
+                        </div>
+                        <span>Lịch làm việc</span>
+                        <h4 class="mb-3">Giờ làm việc</h4>
+                        <ul class="w-hours list-unstyled">
+                            <li class="d-flex justify-content-between">Thứ 2 - Thứ 4 : <span>8:00 - 17:00</span></li>
+                            <li class="d-flex justify-content-between">Thứ 5 - Thứ 6 : <span>9:00 - 17:00</span></li>
+                            <li class="d-flex justify-content-between">Thứ 7 - Chủ nhật : <span>10:00 - 17:00</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item mb-5 mb-lg-0">
+                        <div class="feature-icon mb-4">
+                            <i class="icofont-support"></i>
+                        </div>
+                        <span>Trường hợp khẩn cấp</span>
+                        <h4 class="mb-3">1-800-700-6200</h4>
+                        <p>Liên hệ ngay với chúng tôi khi có vấn đề khẩn cấp. Chúng tôi luôn sẵn sàng hỗ trợ bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer section gray-bg">
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5);">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-primary mb-0">Fruitables</h1>
+                            <p class="text-secondary mb-0">Sản phẩm tươi</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Nhập email của bạn">
+                            <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Đăng ký ngay</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Vì sao chọn chúng tôi?</h4>
+                        <p class="mb-4">Chúng tôi cung cấp những dịch vụ tốt nhất với chất lượng vượt trội và giá cả hợp lý.</p>
+                        <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Xem thêm</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Thông tin cửa hàng</h4>
+                        <a class="btn-link" href="">Về chúng tôi</a>
+                        <a class="btn-link" href="">Liên hệ</a>
+                        <a class="btn-link" href="">Chính sách bảo mật</a>
+                        <a class="btn-link" href="">Điều khoản</a>
+                        <a class="btn-link" href="">Chính sách hoàn trả</a>
+                        <a class="btn-link" href="">Hỏi đáp</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Tài khoản</h4>
+                        <a class="btn-link" href="">Tài khoản của tôi</a>
+                        <a class="btn-link" href="">Chi tiết cửa hàng</a>
+                        <a class="btn-link" href="">Giỏ hàng</a>
+                        <a class="btn-link" href="">Danh sách yêu thích</a>
+                        <a class="btn-link" href="">Lịch sử đơn hàng</a>
+                        <a class="btn-link" href="">Đơn hàng quốc tế</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Liên hệ</h4>
+                        <p>Địa chỉ: TP Hồ Chí Minh, Việt Nam</p>
+                        <p>Email: fruitables@gmail.com</p>
+                        <p>Điện thoại: 0123456789</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* General Reset */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #app-container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #34495e;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background-color: #34495e;
+        }
+
+        .nav-item.active {
+            background-color: #1abc9c;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #34495e;
+            padding: 10px 0;
+            list-style: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .dropdown-menu li {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: #1abc9c;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #ecf0f1;
+            overflow-y: auto;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-toggle,
+        .theme-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-bar {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .content-section {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .content-wrapper {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo"></div>
+            <h1>Quản lý</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active">
+                    <img src="/assets/Icon.svg" alt="Overview" class="icon" />
+                    <span>Tổng quan</span>
+                </li>
+                <li class="nav-item">
+                    <img src="/assets/Icon1.svg" alt="eCommerce" class="icon" />
+                    <span>Thống kê</span>
+                </li>
+                <li class="nav-item">
+                    <img src="/assets/Icon5.svg" alt="Product" class="icon" />
+                    <span>Quản lý sản phẩm</span>
+                    <ul class="dropdown-menu">
+                        <li>Thêm sản phẩm</li>
+                        <li>Cập nhật sản phẩm</li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <img src="/assets/Icon5.svg" alt="Category" class="icon" />
+                    <span>Quản lý danh mục</span>
+                </li>
+                <li class="nav-item">
+                    <img src="/assets/Icon5.svg" alt="Order" class="icon" />
+                    <span>Quản lý đơn hàng</span>
+                </li>
+                <li class="nav-item">
+                    <img src="/assets/Icon11.svg" alt="Blog" class="icon" />
+                    <span>Blog</span>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle">Toggle Menu</button>
+            </div>
+            <div class="header-right">
+                <input type="text" placeholder="Search..." class="search-bar" />
+                <button class="notification-btn">🔔</button>
+                <button class="profile-btn">👤</button>
+            </div>
+        </header>
+
+        <!-- Content Section -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <h2>Dashboard</h2>
+                <p>Welcome to the management system. Use the menu to navigate.</p>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
