@@ -1,242 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <style>
-        /* General Reset */
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
 
-        #app-container {
-            display: flex;
-            width: 100%;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        /* Sidebar Styles */
-        .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
+    <!-- Favicons -->
+    <link href="/admin/img/avt.png" rel="icon">
 
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
+    <title>Admin - Dashboard</title>
 
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #34495e;
-        }
+    <!-- Custom fonts for this template-->
+    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    <!-- Custom styles for this template-->
+    <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-        .nav-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-        }
-
-        .nav-item:hover {
-            background-color: #34495e;
-        }
-
-        .nav-item.active {
-            background-color: #1abc9c;
-        }
-
-        .icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #34495e;
-            padding: 10px 0;
-            list-style: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            width: 100%;
-        }
-
-        .dropdown-menu li {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .dropdown-menu li:hover {
-            background-color: #1abc9c;
-        }
-
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Main Content Styles */
-        .main-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: #ecf0f1;
-            overflow-y: auto;
-        }
-
-        .header {
-            background-color: #ffffff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .menu-toggle,
-        .theme-toggle {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .search-bar {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        .content-section {
-            padding: 30px;
-            flex-grow: 1;
-        }
-
-        .content-wrapper {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 16px;
-            color: #7f8c8d;
-        }
-
-    </style>
 </head>
-<body>
-<div id="app-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo"></div>
-            <h1>Quản lý</h1>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <div th:replace="Admin/layout :: accordionSidebar"></div>
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="Admin/layout :: sidebarToggleTop"></div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Content Row -->
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Tồng Tiền (Hằng tháng)</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">40,000,000Đ</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Tổng tiền (Hằng Năm)</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">1,215,000,000Đ</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nhiệm Vụ
+                                        </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="progress progress-sm mr-2">
+                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                         style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Requests Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Yêu Cầu Chờ Xác Nhận</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Row -->
+                <div class="row">
+
+                    <div class="col-xl-8 col-lg-7">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">THỐNG KÊ DOANH THU THEO THÁNG</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area" style="position: relative; height: 400px; max-width: 100%;">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        fetch('/Admin/home')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const labels = data.months;
+                                                const revenues = data.revenues;
+                                                const ctx = document.getElementById('myAreaChart').getContext('2d');
+                                                new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                        labels: labels,
+                                                        datasets: [{
+                                                            label: 'Doanh thu',
+                                                            data: revenues,
+                                                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                                            borderColor: 'rgba(75, 192, 192, 1)',
+                                                            borderWidth: 2,
+                                                            fill: true
+                                                        }]
+                                                    },
+                                                    options: {
+                                                        responsive: true,
+                                                        maintainAspectRatio: false, <!-- Đảm bảo co giãn hợp lý -->
+                                                        plugins: {
+                                                            legend: {
+                                                                display: true,
+                                                                position: 'top'
+                                                            }
+                                                        },
+                                                        scales: {
+                                                            x: {
+                                                                title: {
+                                                                    display: true,
+                                                                    text: 'Tháng'
+                                                                }
+                                                            },
+                                                            y: {
+                                                                title: {
+                                                                    display: true,
+                                                                    text: 'Doanh thu (VNĐ)'
+                                                                },
+                                                                beginAtZero: true
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            })
+                                            .catch(error => console.error('Error:', error));
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Donut Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">TỶ LỆ SẢN PHẨM BÁN CHẠY</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4">
+                                    <canvas id="myPieChart"></canvas>
+                                </div>
+                                <script>
+                                    fetch('/admin/home')
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            const labels = data.products; // Đổi từ 'sources' thành 'products'
+                                            const values = data.percentages; // Đổi từ 'values' thành 'percentages'
+
+                                            const ctx = document.getElementById('myPieChart').getContext('2d');
+                                            new Chart(ctx, {
+                                                type: 'doughnut',
+                                                data: {
+                                                    labels: labels,
+                                                    datasets: [{
+                                                        data: values,
+                                                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                                                        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                                                        hoverBorderColor: "rgba(234, 236, 244, 1)"
+                                                    }]
+                                                },
+                                                options: {
+                                                    responsive: true,
+                                                    maintainAspectRatio: false,
+                                                    plugins: {
+                                                        tooltip: {
+                                                            backgroundColor: "rgb(255,255,255)",
+                                                            bodyFontColor: "#858796",
+                                                            borderColor: '#dddfeb',
+                                                            borderWidth: 1,
+                                                            padding: 15,
+                                                            displayColors: false,
+                                                            caretPadding: 10
+                                                        },
+                                                        legend: {
+                                                            display: true,
+                                                            position: 'top'
+                                                        }
+                                                    },
+                                                    cutout: '80%' // Thay đổi thành 'cutout' từ 'cutoutPercentage'
+                                                }
+                                            });
+                                        })
+                                        .catch(error => console.error('Error:', error));
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
         </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li class="nav-item active">
-                    <img src="/assets/Icon.svg" alt="Overview" class="icon" />
-                    <span>Tổng quan</span>
-                </li>
-                <li class="nav-item">
-                    <img src="/assets/Icon1.svg" alt="eCommerce" class="icon" />
-                    <span>Thống kê</span>
-                </li>
-                <li class="nav-item">
-                    <img src="/assets/Icon5.svg" alt="Product" class="icon" />
-                    <span>Quản lý sản phẩm</span>
-                    <ul class="dropdown-menu">
-                        <li>Thêm sản phẩm</li>
-                        <li>Cập nhật sản phẩm</li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <img src="/assets/Icon5.svg" alt="Category" class="icon" />
-                    <span>Quản lý danh mục</span>
-                </li>
-                <li class="nav-item">
-                    <img src="/assets/Icon5.svg" alt="Order" class="icon" />
-                    <span>Quản lý đơn hàng</span>
-                </li>
-                <li class="nav-item">
-                    <img src="/assets/Icon11.svg" alt="Blog" class="icon" />
-                    <span>Blog</span>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+        <!-- End of Main Content -->
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-left">
-                <button class="menu-toggle">Toggle Menu</button>
-            </div>
-            <div class="header-right">
-                <input type="text" placeholder="Search..." class="search-bar" />
-                <button class="notification-btn">🔔</button>
-                <button class="profile-btn">👤</button>
-            </div>
-        </header>
 
-        <!-- Content Section -->
-        <section class="content-section">
-            <div class="content-wrapper">
-                <h2>Dashboard</h2>
-                <p>Welcome to the management system. Use the menu to navigate.</p>
-            </div>
-        </section>
-    </main>
+    </div>
+    <!-- End of Content Wrapper -->
+
 </div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript-->
+<script src="/admin/vendor/jquery/jquery.min.js"></script>
+<script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/admin/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="/admin/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="/admin/js/demo/chart-area-demo.js"></script>
+<script src="/admin/js/demo/chart-pie-demo.js"></script>
+
 </body>
+
 </html>
